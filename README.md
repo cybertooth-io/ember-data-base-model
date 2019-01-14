@@ -60,12 +60,19 @@ add-on blueprint: `ember g ember-cybertooth-base-model`.
 
 * `ember-data` - Ember-Data; hopefully this obvious. 
 
-
 Usage
 ------------------------------------------------------------------------------
 
-_Coming Soon_
+Simply extend your model classes with the `-base.js` class:
 
+```javascript
+import BaseModel from 'ember-cybertooth-base-model/models/-base';
+import DS from 'ember-data';
+
+export default BaseModel.extend({
+  // your model goodies in here...
+});
+```
 
 Contributing
 ------------------------------------------------------------------------------
