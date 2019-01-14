@@ -1,7 +1,44 @@
 ember-cybertooth-base-model
 ==============================================================================
 
-[Short description of the addon.]
+Implementation of a Base model that leverages Rails Active Record timestamp fields. Additional helper 
+functions are provided to query model status/persistence.
+
+Features
+------------------------------------------------------------------------------
+
+1. Includes date attributes for the Rails-like `createdAt` & `updatedAt` timestamp fields.
+1. 
+
+[![npm version](http://badge.fury.io/js/ember-cybertooth-base-model.svg)](http://badge.fury.io/js/ember-cybertooth-base-model) ![downloads](http://img.shields.io/npm/dy/ember-cybertooth-base-model.svg) [![CircleCI](http://circleci.com/gh/cybertooth-io/ember-cybertooth-base-model.svg?style=shield)](http://circleci.com/gh/cybertooth-io/ember-cybertooth-base-model) [![Code Climate](http://codeclimate.com/github/cybertooth-io/ember-cybertooth-base-model/badges/gpa.svg)](http://codeclimate.com/github/cybertooth-io/ember-cybertooth-base-model) 
+
+![Dependencies](http://david-dm.org/cybertooth-io/ember-cybertooth-base-model.svg) [![ember-observer-badge](http://emberobserver.com/badges/ember-cybertooth-base-model.svg)](http://emberobserver.com/addons/ember-cybertooth-base-model) [![License](http://img.shields.io/npm/l/ember-cybertooth-base-model.svg)](LICENSE.md)
+
+Motivation
+------------------------------------------------------------------------------
+
+1. Hide details of the AWS Amplify `Auth` & `CognitoUser`
+1. Fold into familiar `ember-simple-auth` ecosystem
+1. Automatically refresh access tokens on a schedule using `ember-concurrency`
+
+Built With
+------------------------------------------------------------------------------
+
+[![ember-cli-3.4.3](https://img.shields.io/badge/ember--cli-3.4.3-brightgreen.svg)](https://circleci.com/gh/cybertooth-io/ember-cybertooth-base-model)
+
+Tested Against
+------------------------------------------------------------------------------
+
+[![ember-lts-2.4](https://img.shields.io/badge/ember--try-ember--lts--2.4-brightgreen.svg)](https://circleci.com/gh/cybertooth-io/ember-cybertooth-base-model)
+[![ember-lts-2.8](https://img.shields.io/badge/ember--try-ember--lts--2.8-brightgreen.svg)](https://circleci.com/gh/cybertooth-io/ember-cybertooth-base-model)
+[![ember-lts-2.12](https://img.shields.io/badge/ember--try-ember--lts--2.12-brightgreen.svg)](https://circleci.com/gh/cybertooth-io/ember-cybertooth-base-model)
+[![ember-lts-2.16](https://img.shields.io/badge/ember--try-ember--lts--2.16-brightgreen.svg)](https://circleci.com/gh/cybertooth-io/ember-cybertooth-base-model)
+
+[![ember-release-2.18](https://img.shields.io/badge/ember--try-ember--release--2.18-brightgreen.svg)](https://circleci.com/gh/cybertooth-io/ember-cybertooth-base-model)
+[![ember-default](https://img.shields.io/badge/ember--try-ember--default-brightgreen.svg)](https://circleci.com/gh/cybertooth-io/ember-cybertooth-base-model)
+[![ember-beta](https://img.shields.io/badge/ember--try-ember--beta-brightgreen.svg)](https://circleci.com/gh/cybertooth-io/ember-cybertooth-base-model)
+[![ember-canary](https://img.shields.io/badge/ember--try-ember--canary-brightgreen.svg)](https://circleci.com/gh/cybertooth-io/ember-cybertooth-base-model)
+
 
 Installation
 ------------------------------------------------------------------------------
@@ -10,40 +47,30 @@ Installation
 ember install ember-cybertooth-base-model
 ```
 
+### Upgrading
+
+When working through the Ember upgrade process, I recommend
+invoking the `ember install ember-cybertooth-base-model` command once 
+you are done to get the latest version of the add-on.
+
+If you've already got the package installed and just want to run the
+add-on blueprint: `ember g ember-cybertooth-base-model`.
+
+### Dependencies
+
+* `ember-data` - Ember-Data; hopefully this obvious. 
+
 
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+_Coming Soon_
 
 
 Contributing
 ------------------------------------------------------------------------------
 
-### Installation
-
-* `git clone <repository-url>`
-* `cd ember-cybertooth-base-model`
-* `npm install`
-
-### Linting
-
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
-
-### Running tests
-
-* `ember test` – Runs the test suite on the current Ember version
-* `ember test --server` – Runs the test suite in "watch mode"
-* `ember try:each` – Runs the test suite against multiple Ember versions
-
-### Running the dummy application
-
-* `ember serve`
-* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+Check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
 License
 ------------------------------------------------------------------------------
