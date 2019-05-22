@@ -1,0 +1,14 @@
+[ver:1,total:5280]
+addon/models/-base.js:2620,1558548000:250,1558551600:2310,1558555200:60,m
+tests/dummy/app/pods/index/template.hbs:945,1558551600:165,1558555200:450,1558558800:330,m
+.gtm/terminal.app:395,1558548000:135,1558551600:200,1558558800:60,r
+package.json:345,1558548000:330,1558558800:15,m
+tests/dummy/app/pods/docs/template.hbs:320,1558551600:125,1558558800:195,m
+tests/dummy/config/environment.js:180,1558548000:180,m
+tests/dummy/app/pods/docs/index/template.md:160,1558551600:10,1558558800:150,m
+tests/dummy/app/router.js:155,1558548000:50,1558551600:90,1558558800:15,m
+.ember-cli:60,1558548000:60,r
+tests/dummy/app/pods/application/template.hbs:40,1558551600:40,m
+tests/dummy/app/styles/app.css:30,1558555200:30,m
+tests/dummy/app/pods/docs/usage/template.md:15,1558558800:15,m
+tests/dummy/app/templates/application.hbs:15,1558548000:15,d
