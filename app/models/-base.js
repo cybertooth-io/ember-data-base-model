@@ -1,1 +1,1 @@
-export { default } from 'ember-cybertooth-base-model/models/-base';
+export { default } from 'ember-data-base-model/models/-base';
