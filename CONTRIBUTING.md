@@ -1,13 +1,10 @@
-Contributing
-==============================================================================
+# How To Contribute
 
-Setup
-------------------------------------------------------------------------------
+## Installation
 
-* `git clone git@github.com:cybertooth-io/ember-cybertooth-base-model.git`
-* `cd ember-cybertooth-base-model`
+* `git clone git@github.com:cybertooth-io/ember-data-base-model.git`
+* `cd ember-data-base-model`
 * `yarn`
-
 
 ### Building The Add-on
 
@@ -16,9 +13,9 @@ Setup
 
 ### Linting
 
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
+* `yarn run lint:hbs`
+* `yarn run lint:js`
+* `yarn run lint:js -- --fix`
 
 ### Running tests
 
@@ -29,7 +26,7 @@ Setup
 ### Running The Dummy Application
 
 * `ember server`
-* Visit your app at http://localhost:4200.
+* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
 
@@ -56,11 +53,12 @@ Use yarn.
 # from this add-on project
 $ yarn link
 # from the other project that depends on this add-on
-$ yarn link ember-cybertooth-base-model
+$ yarn link ember-data-base-model
 ```
+In your other project's `package.json`, set `"ember-data-base-model": "*",`
 
 Note: I've actually had to go into my _other project_ and put this into its `package.json`:
-`"ember-cybertooth-base-model": "link:../ember-cybertooth-base-model",`
+`"ember-data-base-model": "link:../ember-data-base-model",`
 
 ### Unlinking
 
@@ -70,7 +68,7 @@ Again, use yarn.
 # from this add-on project
 $ yarn unlink
 # from the other project that linked to this add-on
-$ yarn unlink ember-cybertooth-base-model
+$ yarn unlink ember-data-base-model
 ```
 
 Deploying The Dummy Application
@@ -87,7 +85,7 @@ aws_secret_access_key = <SECRET>
 
 Deploy by invoking the following command: `ember deploy production`
 
-Confirm your changes are showing up in our S3 container: http://ember-cybertooth-base-model.cybertooth.io/
+Confirm your changes are showing up in our S3 container: http://ember-data-base-model.cybertooth.io/
 
 You may need to go into AWS CloudFront to expire the index.html file before the site 
 changes are picked up (see [issue](https://github.com/cybertoothca/ember-cli-text-support-mixins/issues/29)).

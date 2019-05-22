@@ -4,6 +4,33 @@ ember-cybertooth-base-model
 Implementation of a Base model that leverages Rails Active Record timestamp fields. Additional helper 
 functions are provided to query model status/persistence.
 
+Compatibility
+------------------------------------------------------------------------------
+
+* Ember.js v2.18 or above
+* Ember CLI v2.13 or above
+* Node.js v8 or above
+
+Installation
+------------------------------------------------------------------------------
+
+```
+ember install ember-cybertooth-base-model
+```
+
+### Upgrading
+
+When working through the Ember upgrade process, I recommend
+invoking the `ember install ember-cybertooth-base-model` command once 
+you are done to get the latest version of the add-on.
+
+If you've already got the package installed and just want to run the
+add-on blueprint: `ember g ember-cybertooth-base-model`.
+
+### Dependencies
+
+* `ember-data` - Ember-Data; hopefully this obvious. 
+
 Features
 ------------------------------------------------------------------------------
 
@@ -38,26 +65,6 @@ Tested Against
 [![ember-canary](https://img.shields.io/badge/ember--try-ember--canary-brightgreen.svg)](https://circleci.com/gh/cybertooth-io/ember-cybertooth-base-model)
 
 
-Installation
-------------------------------------------------------------------------------
-
-```
-ember install ember-cybertooth-base-model
-```
-
-### Upgrading
-
-When working through the Ember upgrade process, I recommend
-invoking the `ember install ember-cybertooth-base-model` command once 
-you are done to get the latest version of the add-on.
-
-If you've already got the package installed and just want to run the
-add-on blueprint: `ember g ember-cybertooth-base-model`.
-
-### Dependencies
-
-* `ember-data` - Ember-Data; hopefully this obvious. 
-
 Usage
 ------------------------------------------------------------------------------
 
@@ -75,7 +82,8 @@ export default BaseModel.extend({
 Contributing
 ------------------------------------------------------------------------------
 
-Check out [CONTRIBUTING.md](CONTRIBUTING.md).
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
 
 License
 ------------------------------------------------------------------------------
