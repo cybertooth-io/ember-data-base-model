@@ -1,0 +1,11 @@
+[ver:1,total:2160]
+package.json:507,1558620000:507,m
+README.md:440,1558620000:440,m
+tests/dummy/app/pods/docs/usage/template.md:362,1558620000:362,m
+tests/dummy/app/pods/index/template.hbs:322,1558620000:322,m
+.circleci/config.yml:285,1558620000:285,m
+.gtm/terminal.app:60,1558620000:60,r
+config/ember-try.js:59,1558620000:59,r
+DEPENDENCIES.md:55,1558620000:55,m
+.travis.yml:50,1558620000:50,r
+tests/dummy/app/models/user.js:20,1558620000:20,r
