@@ -80,7 +80,8 @@
     "node": "8.* || >= 10.*"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "https://cybertooth-io.github.io/ember-data-base-model/"
   },
   "homepage": "https://cybertooth-io.github.io/ember-data-base-model"
 }

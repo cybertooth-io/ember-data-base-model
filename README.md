@@ -1,13 +1,11 @@
 ember-data-base-model
 ==============================================================================
 
-Ember Simple Auth implementation wrapping `okta-auth-js`.
+Implementation of a Base model that leverages Rails Active Record timestamp fields. Additional helper 
+functions are provided to query model status/persistence.
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/a5acd1c21cc1fddb227b/maintainability)](https://codeclimate.com/github/cybertooth-io/ember-data-base-model/maintainability)
 [![CircleCI](https://circleci.com/gh/cybertooth-io/ember-data-base-model.svg?style=svg)](https://circleci.com/gh/cybertooth-io/ember-data-base-model)
-
-Implementation of a Base model that leverages Rails Active Record timestamp fields. Additional helper 
-functions are provided to query model status/persistence.
 
 Compatibility
 ------------------------------------------------------------------------------
