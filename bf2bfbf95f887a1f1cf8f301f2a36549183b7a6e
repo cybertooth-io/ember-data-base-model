@@ -1,0 +1,9 @@
+[ver:1,total:1980]
+addon/models/-base.js:1760,1558620000:140,1558623600:1620,m
+.circleci/config.yml:70,1558620000:70,r
+tests/dummy/app/index.html:60,1558623600:60,m
+README.md:30,1558620000:30,r
+.gtm/terminal.app:30,1558620000:30,r
+tests/dummy/app/pods/index/template.hbs:10,1558620000:10,r
+app/models/-base.js:10,1558620000:10,r
+ember-cli-build.js:10,1558620000:10,r
