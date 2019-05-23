@@ -1,0 +1,5 @@
+[ver:1,total:720]
+.circleci/config.yml:300,1558616400:300,m
+.gtm/terminal.app:210,1558562400:210,r
+.travis.yml:180,1558562400:180,r
+tests/dummy/app/index.html:30,1558562400:30,r
