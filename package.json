@@ -1,7 +1,7 @@
 {
   "name": "ember-data-base-model",
   "version": "1.0.0-rc.0",
-  "description": "Implementation of a Base model that leverages Rails Active Record timestamp fields. Additional helper functions are provided to query model status/persistence.",
+  "description": "A Base Ember-Data model including `createdAt` and `updatedAt` attributes matching those found in Ruby on Rails timestamped resources.",
   "keywords": [
     "active-record-timestamps",
     "base-model",
