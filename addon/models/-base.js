@@ -2,7 +2,7 @@
 
 import { isPresent } from '@ember/utils';
 import { computed } from '@ember/object';
-import { not, readOnly } from '@ember/object/computed';
+import { deprecatingAlias, not, readOnly } from '@ember/object/computed';
 import DS from 'ember-data';
 
 /**
@@ -35,15 +35,57 @@ export default DS.Model.extend({
   // -------------------------------------------------------------------------------------------------------------------
 
   /**
+   * Deprecated, use `isAltered` instead.  Going away in Ember-Data-4.0.
+   *
+   * See: https://github.com/cybertooth-io/ember-data-base-model/issues/11
+   *
+   * @type boolean
+   * @accessor altered?
+   * @deprecated use `isAltered` instead because question marks in property names is not sustainable
+   */
+  'altered?': deprecatingAlias('isAltered', {
+    id: 'ember-data-base-model/models/-base.deprecate-altered-question-mark',
+    until: 'ember-data-4.0.0'
+  }),
+
+  /**
+   * Deprecated, use `isClean` instead.  Going away in Ember-Data-4.0.
+   *
+   * See: https://github.com/cybertooth-io/ember-data-base-model/issues/11
+   *
+   * @type boolean
+   * @accessor clean?
+   * @deprecated use `isClean` instead because question marks in property names is not sustainable
+   */
+  'clean?': deprecatingAlias('isClean', {
+    id: 'ember-data-base-model/models/-base.deprecate-clean-question-mark',
+    until: 'ember-data-4.0.0'
+  }),
+
+  /**
+   * Deprecated, use `isDirty` instead.  Going away in Ember-Data-4.0.
+   *
+   * See: https://github.com/cybertooth-io/ember-data-base-model/issues/11
+   *
+   * @type boolean
+   * @accessor dirty?
+   * @deprecated use `isDirty` instead because question marks in property names is not sustainable
+   */
+  'dirty?': deprecatingAlias('isDirty', {
+    id: 'ember-data-base-model/models/-base.deprecate-dirty-question-mark',
+    until: 'ember-data-4.0.0'
+  }),
+
+  /**
    * Returns `true` if the instance has been altered since creation; `false` otherwise.
    *
    * Has the model has been altered since creation?  Determined by comparing the `createdAt` timestamp
    * against the `updatedAt` timestamp.
    *
    * @type boolean
-   * @accessor altered?
+   * @accessor isAltered
    */
-  'altered?': computed('createdAt', 'updatedAt', function () {
+  isAltered: computed('createdAt', 'updatedAt', function () {
     const createdAt = this.get('createdAt');
     const updatedAt = this.get('updatedAt');
     return isPresent(createdAt) && isPresent(updatedAt) && createdAt.getTime() !== updatedAt.getTime();
@@ -55,9 +97,9 @@ export default DS.Model.extend({
    * Negation of the model's `hasDirtyAttributes` property.
    *
    * @type boolean
-   * @accessor clean?
+   * @accessor isClean
    */
-  'clean?': not('dirty?'),
+  isClean: not('isDirty'),
 
   /**
    * Return `true` if the model is dirty and at least one attribute has been edited; `false` otherwise.
@@ -65,19 +107,9 @@ export default DS.Model.extend({
    * Read-only peek at the model's `hasDirtyAttributes` property.
    *
    * @type boolean
-   * @accessor dirty?
+   * @accessor isDirty
    */
-  'dirty?': readOnly('hasDirtyAttributes'),
-
-  /**
-   * Return `true` if the model is new and has not yet been persisted; `false` otherwise.
-   *
-   * Read-only peek at the model's `isNew` property.
-   *
-   * @type boolean
-   * @accessor new?
-   */
-  'new?': readOnly('isNew'),
+  isDirty: readOnly('hasDirtyAttributes'),
 
   /**
    * Return `true` if the instance has been persisted to the store; `false` otherwise.
@@ -85,19 +117,61 @@ export default DS.Model.extend({
    * Negation of the `isNew` property, meaning that the model has been persisted permanently to the store.
    *
    * @type boolean
-   * @accessor persisted?
+   * @accessor isPersisted
    */
-  'persisted?': not('new?'),
+  isPersisted: not('isNew'),
 
   /**
    * Return `true` if the instance is unchanged since creation; `false` otherwise.
    *
-   * Is the model unchanged since creation?  Basically the negation of `altered?`.
+   * Is the model unchanged since creation?  Basically the negation of `isAltered`.
+   *
+   * @type boolean
+   * @accessor isUnaltered
+   */
+  isUnaltered: not('isAltered'),
+
+  /**
+   * Deprecated, use Ember Data `isNew` instead.  Going away in Ember-Data-4.0.
+   *
+   * See: https://github.com/cybertooth-io/ember-data-base-model/issues/11
+   *
+   * @type boolean
+   * @accessor new?
+   * @deprecated use `isNew` instead because question marks in property names is not sustainable
+   */
+  'new?': deprecatingAlias('isNew', {
+    id: 'ember-data-base-model/models/-base.deprecate-new-question-mark',
+    until: 'ember-data-4.0.0'
+  }),
+
+  /**
+   * Deprecated, use `isPersisted` instead.  Going away in Ember-Data-4.0.
+   *
+   * See: https://github.com/cybertooth-io/ember-data-base-model/issues/11
+   *
+   * @type boolean
+   * @accessor persisted?
+   * @deprecated use `isPersisted` instead because question marks in property names is not sustainable
+   */
+  'persisted?': deprecatingAlias('isPersisted', {
+    id: 'ember-data-base-model/models/-base.deprecate-persisted-question-mark',
+    until: 'ember-data-4.0.0'
+  }),
+
+  /**
+   * Deprecated, use `isUnaltered` instead.  Going away in Ember-Data-4.0.
+   *
+   * See: https://github.com/cybertooth-io/ember-data-base-model/issues/11
    *
    * @type boolean
    * @accessor unaltered?
+   * @deprecated use `isUnaltered` instead because question marks in property names is not sustainable
    */
-  'unaltered?': not('altered?'),
+  'unaltered?': deprecatingAlias('isUnaltered', {
+    id: 'ember-data-base-model/models/-base.deprecate-unaltered-question-mark',
+    until: 'ember-data-4.0.0'
+  }),
 
   // Instance Methods
   // -------------------------------------------------------------------------------------------------------------------
