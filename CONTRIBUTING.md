@@ -30,8 +30,7 @@
 
 For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
 
-Upgrading The Add-On
-------------------------------------------------------------------------------
+## Upgrading The Add-On
 
 When upgrading this add-on, after successfully performing `ember init` use the following
 commands to install the following dependencies required by this add-on.
@@ -42,8 +41,7 @@ ember install ember-concurrency
 yarn add @aws-amplify/auth @aws-amplify/core ember-simple-auth
 ```
 
-Linking This Add-on For Local Testing
-------------------------------------------------------------------------------
+## Linking This Add-on For Local Testing
 
 ### Linking
 
@@ -71,8 +69,31 @@ $ yarn unlink
 $ yarn unlink ember-data-base-model
 ```
 
-Deploying The Dummy Application
-------------------------------------------------------------------------------
+## Commiting Code
+
+Fork and submit a pull request.
+
+Try to use an emoji to help describe the commit:
+
+* 🎉 Initial Commit
+* 🔖 Version Tag
+* ✨ New Feature
+* 🐛 Bugfix
+* 🔒 Security Fix
+* 📇 Metadata
+* ♻️ Refactoring
+* 📚 Documentation
+* 🌐 Internationalization
+* ♿️ Accessibility
+* 🐎 Performance
+* 🎨 Cosmetic
+* 🔧 Tooling
+* 🚨 Tests
+* 💩 Deprecation
+* 🗑 Removal
+* 🚧 Work In Progress 
+
+## Deploying The Dummy Application
 
 Make sure your `~/.aws/credentials` file has a profile named _cybertooth_ 
 with a valid key and secret,
