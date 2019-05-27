@@ -1,0 +1,7 @@
+[ver:1,total:2700]
+addon/models/-base.js:1094,1547434800:750,1547438400:344,m
+tests/unit/models/-base-test.js:976,1547438400:976,m
+.gtm/terminal.app:270,1547434800:120,1547438400:150,r
+README.md:220,1547434800:90,1547438400:130,m
+tests/dummy/app/models/user.js:100,1547438400:100,m
+blueprints/ember-cybertooth-base-model/index.js:40,1547438400:40,m
