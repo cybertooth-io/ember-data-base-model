@@ -3,6 +3,8 @@ jobs:
   yarn_and_cache:
     docker:
       - image: circleci/node:lts-browsers
+        environment:
+          JOBS: 2
     steps:
       - checkout
       - restore_cache:
@@ -20,6 +22,8 @@ jobs:
   test_default:
     docker:
       - image: circleci/node:lts-browsers
+        environment:
+          JOBS: 2
     steps:
       - checkout
       - restore_cache:
@@ -33,6 +37,8 @@ jobs:
   test_default_with_jquery:
     docker:
       - image: circleci/node:lts-browsers
+        environment:
+          JOBS: 2
     steps:
       - checkout
       - restore_cache:
@@ -46,6 +52,8 @@ jobs:
   test_release:
     docker:
       - image: circleci/node:lts-browsers
+        environment:
+          JOBS: 2
     steps:
       - checkout
       - restore_cache:
@@ -59,6 +67,8 @@ jobs:
   test_beta:
     docker:
       - image: circleci/node:lts-browsers
+        environment:
+          JOBS: 2
     steps:
       - checkout
       - restore_cache:
@@ -72,6 +82,8 @@ jobs:
   test_canary:
     docker:
       - image: circleci/node:lts-browsers
+        environment:
+          JOBS: 2
     steps:
       - checkout
       - restore_cache:
@@ -85,6 +97,8 @@ jobs:
   test_lts_2_18:
     docker:
       - image: circleci/node:lts-browsers
+        environment:
+          JOBS: 2
     steps:
       - checkout
       - restore_cache:
@@ -98,6 +112,8 @@ jobs:
   test_lts_2_16:
     docker:
       - image: circleci/node:lts-browsers
+        environment:
+          JOBS: 2
     steps:
       - checkout
       - restore_cache:
@@ -111,6 +127,8 @@ jobs:
   test_lts_2_12:
     docker:
       - image: circleci/node:lts-browsers
+        environment:
+          JOBS: 2
     steps:
       - checkout
       - restore_cache:
@@ -124,6 +142,8 @@ jobs:
   test_lts_2_8:
     docker:
       - image: circleci/node:lts-browsers
+        environment:
+          JOBS: 2
     steps:
       - checkout
       - restore_cache:
@@ -137,6 +157,8 @@ jobs:
   test_lts_2_4:
     docker:
       - image: circleci/node:lts-browsers
+        environment:
+          JOBS: 2
     steps:
       - checkout
       - restore_cache:
@@ -158,18 +180,18 @@ workflows:
       - test_default_with_jquery:
           requires:
             - yarn_and_cache
-#      - test_release:
-#          requires:
-#            - yarn_and_cache
-#      - test_beta:
-#          requires:
-#            - yarn_and_cache
-#      - test_canary:
-#          requires:
-#            - yarn_and_cache
-#      - test_lts_2_18:
-#          requires:
-#            - yarn_and_cache
+      - test_release:
+          requires:
+            - yarn_and_cache
+      - test_beta:
+          requires:
+            - yarn_and_cache
+      - test_canary:
+          requires:
+            - yarn_and_cache
+      - test_lts_2_18:
+          requires:
+            - yarn_and_cache
 #      - test_lts_2_16:
 #          requires:
 #            - yarn_and_cache
