@@ -10,7 +10,10 @@ module.exports = {
   afterInstall: function (/*options*/) {
     return this.addAddonsToProject({
       packages: [
-        { name: 'ember-data' }
+        {
+          name: 'ember-data',
+          version: '^3.10.0'
+        }
       ]
     });
   }

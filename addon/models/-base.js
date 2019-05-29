@@ -5,11 +5,28 @@ import { computed } from '@ember/object';
 import { deprecatingAlias, not, readOnly } from '@ember/object/computed';
 import DS from 'ember-data';
 
+const { attr, Model } = DS;
+
 /**
+ * This Base Model class contains the `createdAt` and `updatedAt` timestamp fields
+ * the Rails provides.
+ *
+ * You should import `Base` in your model class and then make your model extend it like so:
+ *
+ * ```javascript
+ * // app/models/some-model.js
+ * import BaseModel from 'ember-data-base-model/models/-base';
+ *
+ * export default BaseModel.extend({
+ *    // ... your model implementation ...
+ * });
+ * ```
+ *
  * @class Base
+ * @extends Model
  * @public
  */
-export default DS.Model.extend({
+export default Model.extend({
 
   // Attributes
   // -------------------------------------------------------------------------------------------------------------------
@@ -21,7 +38,7 @@ export default DS.Model.extend({
    * @property createdAt
    * @type Date
    */
-  createdAt: DS.attr('date'),
+  createdAt: attr('date'),
 
   /**
    * If you have a Rails app and use timestamps in your table creation migrations, you'll have a `updated_at`
@@ -29,7 +46,7 @@ export default DS.Model.extend({
    * @property updatedAt
    * @type Date
    */
-  updatedAt: DS.attr('date'),
+  updatedAt: attr('date'),
 
   // Computed Helpers
   // -------------------------------------------------------------------------------------------------------------------
@@ -183,6 +200,7 @@ export default DS.Model.extend({
    * knows that the model may need to be saved.
    *
    * @method becomeDirty
+   * @return {void}
    */
   becomeDirty() {
     this.get('errors').clear();
@@ -196,6 +214,7 @@ export default DS.Model.extend({
    * This method depends on accessing the `_internalModel` field.
    *
    * @method transitionToInFlight
+   * @return {void}
    */
   transitionToInFlight() {
     this.becomeDirty();
@@ -210,6 +229,7 @@ export default DS.Model.extend({
    *
    * @param {Object} payload the API server payload that will be pushed into the Ember Data `store`
    * @method transitionToSaved
+   * @return {void}
    */
   transitionToSaved(payload) {
     this.transitionTo('saved');
@@ -225,6 +245,7 @@ export default DS.Model.extend({
    * @param {Object} payload the API server payload that includes the error messages that will be appended
    * to the model's `errors` collection.
    * @method transitionToUncommitted
+   * @return {void}
    */
   transitionToUncommitted(payload) {
     const internalModel = this.get('_internalModel');
