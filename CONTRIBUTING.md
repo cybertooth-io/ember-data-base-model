@@ -36,9 +36,7 @@ When upgrading this add-on, after successfully performing `ember init` use the f
 commands to install the following dependencies required by this add-on.
 
 ```bash
-ember install ember-auto-import
-ember install ember-concurrency
-yarn add @aws-amplify/auth @aws-amplify/core ember-simple-auth
+ember install ember-data-base-model
 ```
 
 ## Linking This Add-on For Local Testing
@@ -73,46 +71,9 @@ $ yarn unlink ember-data-base-model
 
 Fork and submit a pull request.
 
-Try to use an emoji to help describe the commit:
+Try to use an emoji to help describe the commit: https://gitmoji.carloscuesta.me/
 
-* 🎉 Initial Commit
-* 🔖 Version Tag
-* ✨ New Feature
-* 🐛 Bugfix
-* 🔒 Security Fix
-* 📇 Metadata
-* ♻️ Refactoring
-* 📚 Documentation
-* 🌐 Internationalization
-* ♿️ Accessibility
-* 🐎 Performance
-* 🎨 Cosmetic
-* 🔧 Tooling
-* 🚨 Tests
-* 💩 Deprecation
-* 🗑 Removal
-* 🚧 Work In Progress 
-
-## Deploying The Dummy Application
-
-Make sure your `~/.aws/credentials` file has a profile named _cybertooth_ 
-with a valid key and secret,
-
-```
-[cybertooth]
-aws_access_key_id = <KEY>
-aws_secret_access_key = <SECRET>
-```
-
-Deploy by invoking the following command: `ember deploy production`
-
-Confirm your changes are showing up in our S3 container: http://ember-data-base-model.cybertooth.io/
-
-You may need to go into AWS CloudFront to expire the index.html file before the site 
-changes are picked up (see [issue](https://github.com/cybertoothca/ember-cli-text-support-mixins/issues/29)).
-
-Releasing & Publishing To NPM
-------------------------------------------------------------------------------
+## Releasing & Publishing To NPM
 
 ```bash
 # `yarn publish` will prompt you for the next/new version name
