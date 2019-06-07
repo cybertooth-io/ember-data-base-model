@@ -1,6 +1,6 @@
 {
   "name": "ember-data-base-model",
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0-rc.3",
   "description": "A Base Ember-Data model including `createdAt` and `updatedAt` attributes matching those found in Ruby on Rails timestamped resources.",
   "keywords": [
     "active-record-timestamps",
