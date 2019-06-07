@@ -1,3 +1,4 @@
+import { isPresent } from '@ember/utils';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
@@ -8,6 +9,20 @@ module('Unit | Model |  base', function (hooks) {
     let store = this.owner.lookup('service:store');
     let model = store.createRecord('-base', {});
     assert.ok(model);
+  });
+
+  test('when initialized the createdAt is set to now', async function (assert) {
+    let store = this.owner.lookup('service:store');
+    let model = store.createRecord('-base');
+
+    assert.ok(isPresent(model.createdAt));
+  });
+
+  test('when initialized the updateAt is set to now', async function (assert) {
+    let store = this.owner.lookup('service:store');
+    let model = store.createRecord('-base');
+
+    assert.ok(isPresent(model.updatedAt));
   });
 
   test('when altered? because createdAt does not match updatedAt', function (assert) {

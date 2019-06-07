@@ -35,18 +35,33 @@ export default Model.extend({
    * If you have a Rails app and use timestamps in your table creation migrations, you'll have a `created_at`
    * attribute on most if not all of your models.
    *
+   * By default, this value will be set to now (e.g. `new Date()`).
+   *
+   * @default new Date()
    * @property createdAt
    * @type Date
    */
-  createdAt: attr('date'),
+  createdAt: attr('date', {
+    defaultValue: function () {
+      return new Date();
+    }
+  }),
 
   /**
    * If you have a Rails app and use timestamps in your table creation migrations, you'll have a `updated_at`
    * attribute on most if not all of your models.
+   *
+   * By default, this value will be set to now (e.g. `new Date()`).
+   *
+   * @default new Date()
    * @property updatedAt
    * @type Date
    */
-  updatedAt: attr('date'),
+  updatedAt: attr('date', {
+    defaultValue: function () {
+      return new Date();
+    }
+  }),
 
   // Computed Helpers
   // -------------------------------------------------------------------------------------------------------------------
