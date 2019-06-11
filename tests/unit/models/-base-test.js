@@ -33,9 +33,9 @@ module('Unit | Model |  base', function (hooks) {
     });
 
     assert.ok(model.get('altered?'));
-    assert.ok(model.isAltered);
+    assert.ok(model.get('isAltered'));
     assert.notOk(model.get('unaltered?'));
-    assert.notOk(model.isUnaltered);
+    assert.notOk(model.get('isUnaltered'));
   });
 
   test('when clean?', function (assert) {
@@ -47,9 +47,9 @@ module('Unit | Model |  base', function (hooks) {
 
     // TODO: this should be improved somehow?  Mirage?
     assert.notOk(model.get('clean?'));
-    assert.notOk(model.isClean);
+    assert.notOk(model.get('isClean'));
     assert.ok(model.get('dirty?'));
-    assert.ok(model.isDirty);
+    assert.ok(model.get('isDirty'));
   });
 
   test('when dirty?', function (assert) {
@@ -60,9 +60,9 @@ module('Unit | Model |  base', function (hooks) {
     });
 
     assert.ok(model.get('dirty?'));
-    assert.ok(model.isDirty);
+    assert.ok(model.get('isDirty'));
     assert.notOk(model.get('clean?'));
-    assert.notOk(model.isClean);
+    assert.notOk(model.get('isClean'));
   });
 
   test('when new?', function (assert) {
@@ -73,9 +73,9 @@ module('Unit | Model |  base', function (hooks) {
     });
 
     assert.ok(model.get('new?'));
-    assert.ok(model.isNew);
+    assert.ok(model.get('isNew'));
     assert.notOk(model.get('persisted?'));
-    assert.notOk(model.isPersisted);
+    assert.notOk(model.get('isPersisted'));
   });
 
   test('when persisted?', function (assert) {
@@ -87,9 +87,9 @@ module('Unit | Model |  base', function (hooks) {
 
     // TODO: this should be improved somehow?  Mirage?
     assert.notOk(model.get('persisted?'));
-    assert.notOk(model.isPersisted);
+    assert.notOk(model.get('isPersisted'));
     assert.ok(model.get('new?'));
-    assert.ok(model.isNew);
+    assert.ok(model.get('isNew'));
   });
 
   test('when unaltered? because createdAt same as updatedAt', function (assert) {
@@ -100,9 +100,9 @@ module('Unit | Model |  base', function (hooks) {
     });
 
     assert.notOk(model.get('altered?'));
-    assert.notOk(model.isAltered);
+    assert.notOk(model.get('isAltered'));
     assert.ok(model.get('unaltered?'));
-    assert.ok(model.isUnaltered);
+    assert.ok(model.get('isUnaltered'));
   });
 
   test('when calling becomeDirty() the errors are cleared and state is set to dirty', async function (assert) {
@@ -110,12 +110,12 @@ module('Unit | Model |  base', function (hooks) {
     let model = store.createRecord('-base');
 
     // assert.ok(model.isClean); // TODO: requires mirage to fetch a persisted clean record
-    model.errors.add('createdAt', 'Some error');
-    assert.equal(model.errors.length, 1);
+    model.get('errors').add('createdAt', 'Some error');
+    assert.equal(model.get('errors.length'), 1);
 
     model.becomeDirty();
-    assert.ok(model.isDirty);
-    assert.equal(model.errors.length, 0);
+    assert.ok(model.get('isDirty'));
+    assert.equal(model.get('errors.length'), 0);
   });
 
   skip('when transitioning to in flight', async function (/*assert*/) {

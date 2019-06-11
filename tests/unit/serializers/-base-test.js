@@ -27,7 +27,7 @@ module('Unit | Serializer |  base', function (hooks) {
     let store = this.owner.lookup('service:store');
     let record = store.createRecord('-base', { createdAt: new Date(2001, 8, 11) });
 
-    assert.ok(isPresent(record.createdAt.toISOString()));
+    assert.ok(isPresent(record.get('createdAt').toISOString()));
     assert.ok(isNone(get(record.serialize(), 'data.attributes.created-at')));
   });
 
@@ -35,7 +35,7 @@ module('Unit | Serializer |  base', function (hooks) {
     let store = this.owner.lookup('service:store');
     let record = store.createRecord('-base', { updatedAt: new Date(2001, 8, 11) });
 
-    assert.ok(isPresent(record.updatedAt.toISOString()));
+    assert.ok(isPresent(record.get('updatedAt').toISOString()));
     assert.ok(isNone(get(record.serialize(), 'data.attributes.updated-at')));
   });
 });
