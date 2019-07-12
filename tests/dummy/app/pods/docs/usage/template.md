@@ -12,6 +12,7 @@ class from this addon:
 ...and extend your model accordingly:
 
 ```javascript
+  // app/models/your-model.js
   import DS from 'ember-data';
   import BaseModel from 'ember-data-base-model/models/-base';
   
@@ -22,4 +23,16 @@ class from this addon:
 
 ## Base JSONAPI Serializer
 
-_Coming Soon_
+And ... if your model includes the timestamp fields `createdAt` & `updatedAt` from Rails,
+I suggest you don't bother passing them in your POST/PATCH/PUT payloads.
+
+Make your `app/serializers/application.js` serializer use our `BaseSerializer`:
+
+```javascript
+  // app/serializers/application.js
+  import BaseSerializer from 'ember-data-base-model/serializers/-base';
+  
+  export default BaseSerializer.extend({
+  // your serializer customization would go in here
+});
+``` 
