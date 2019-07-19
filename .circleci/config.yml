@@ -13,6 +13,9 @@ default_try_steps: &default_try_steps
           - v1-deps-{{ .Branch }}-
           - v1-deps-
     - run:
+        name: Install Bower For Ember-2.x LTS scenarios
+        command: sudo yarn global add bower
+    - run:
         name: Ember Try Scenario
         command: node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
 
@@ -163,9 +166,9 @@ workflows:
       - test_lts_2_12:
           requires:
             - yarn_and_cache
-#    - test_lts_2_8:
-#        requires:
-#        - yarn_and_cache
-#    - test_lts_2_4:
-#        requires:
-#        - yarn_and_cache
+      - test_lts_2_8:
+          requires:
+            - yarn_and_cache
+      - test_lts_2_4:
+          requires:
+            - yarn_and_cache
