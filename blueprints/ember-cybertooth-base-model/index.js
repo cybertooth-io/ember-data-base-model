@@ -4,10 +4,10 @@ module.exports = {
 
   name: 'ember-data-base-model',
 
-  normalizeEntityName: function () {
+  normalizeEntityName: () => {
   },
 
-  afterInstall: function (/*options*/) {
+  afterInstall: (/* options */) => {
     return this.addAddonsToProject({
       packages: [
         {

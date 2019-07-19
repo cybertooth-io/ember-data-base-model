@@ -17,4 +17,9 @@
 # ember-try
 /.node_modules.ember-try/
 /bower.json.ember-try
+/config/ember-try.js
 /package.json.ember-try
+
+
+/.eslintrc.js
+/testem.js
