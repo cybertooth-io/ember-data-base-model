@@ -42,7 +42,7 @@ export default Model.extend({
    * @type Date
    */
   createdAt: attr('date', {
-    defaultValue: function() {
+    defaultValue: () => {
       return new Date();
     }
   }),
@@ -58,7 +58,7 @@ export default Model.extend({
    * @type Date
    */
   updatedAt: attr('date', {
-    defaultValue: function() {
+    defaultValue: () => {
       return new Date();
     }
   }),
@@ -118,8 +118,8 @@ export default Model.extend({
    * @accessor isAltered
    */
   isAltered: computed('createdAt', 'updatedAt', function() {
-    const createdAt = this.get('createdAt');
-    const updatedAt = this.get('updatedAt');
+    let createdAt = this.get('createdAt');
+    let updatedAt = this.get('updatedAt');
     return isPresent(createdAt) && isPresent(updatedAt) && createdAt.getTime() !== updatedAt.getTime();
   }),
 
@@ -219,6 +219,7 @@ export default Model.extend({
    * @experimental
    * @method becomeDirty
    * @return {void}
+   * @public
    */
   becomeDirty() {
     this.get('errors').clear();
@@ -236,6 +237,7 @@ export default Model.extend({
    * @experimental
    * @method transitionToInFlight
    * @return {void}
+   * @public
    */
   transitionToInFlight() {
     this.becomeDirty();
@@ -254,6 +256,7 @@ export default Model.extend({
    * @param {Object} payload the API server payload that will be pushed into the Ember Data `store`
    * @method transitionToSaved
    * @return {void}
+   * @public
    */
   transitionToSaved(payload) {
     this.transitionTo('saved');
@@ -273,16 +276,17 @@ export default Model.extend({
    * to the model's `errors` collection.
    * @method transitionToUncommitted
    * @return {void}
+   * @public
    */
   transitionToUncommitted(payload) {
-    const internalModel = this.get('_internalModel');
-    const modelName = internalModel.modelName;
-    const store = this.get('store');
-    const modelClass = store.modelFor(modelName);
+    let internalModel = this.get('_internalModel');
+    let { modelName } = internalModel;
+    let store = this.get('store');
+    let modelClass = store.modelFor(modelName);
 
     this.transitionTo('uncommitted');
 
-    const errors = store.serializerFor(modelName).extractErrors(store, modelClass, payload, this.get('id'));
+    let errors = store.serializerFor(modelName).extractErrors(store, modelClass, payload, this.get('id'));
     store.recordWasInvalid(internalModel, errors);
   }
 });

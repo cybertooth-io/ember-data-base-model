@@ -1,20 +1,20 @@
-import { isNone, isPresent } from '@ember/utils';
 import { get } from '@ember/object';
-import { module, test } from 'qunit';
+import { isNone, isPresent } from '@ember/utils';
 import { setupTest } from 'ember-qunit';
+import { module, test } from 'qunit';
 
-module('Unit | Serializer |  base', function (hooks) {
+module('Unit | Serializer |  base', function(hooks) {
   setupTest(hooks);
 
   // Replace this with your real tests.
-  test('it exists', function (assert) {
+  test('it exists', function(assert) {
     let store = this.owner.lookup('service:store');
     let serializer = store.serializerFor('-base');
 
     assert.ok(serializer);
   });
 
-  test('it serializes records', function (assert) {
+  test('it serializes records', function(assert) {
     let store = this.owner.lookup('service:store');
     let record = store.createRecord('-base', {});
 
@@ -23,7 +23,7 @@ module('Unit | Serializer |  base', function (hooks) {
     assert.ok(serializedRecord);
   });
 
-  test('when serialized the createdAt value is not packaged', async function (assert) {
+  test('when serialized the createdAt value is not packaged', async function(assert) {
     let store = this.owner.lookup('service:store');
     let record = store.createRecord('-base', { createdAt: new Date(2001, 8, 11) });
 
@@ -31,7 +31,7 @@ module('Unit | Serializer |  base', function (hooks) {
     assert.ok(isNone(get(record.serialize(), 'data.attributes.created-at')));
   });
 
-  test('when serialized the updatedAt value is not packaged', async function (assert) {
+  test('when serialized the updatedAt value is not packaged', async function(assert) {
     let store = this.owner.lookup('service:store');
     let record = store.createRecord('-base', { updatedAt: new Date(2001, 8, 11) });
 

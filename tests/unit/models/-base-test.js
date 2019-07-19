@@ -163,9 +163,11 @@ module('Unit | Model |  base', function(hooks) {
         attributes: {
           'created-at': mirageModel.createdAt.toISOString(),
           'email': 'new-email@example.com',
-          'updated-at': new Date().toISOString(),
+          'updated-at': new Date().toISOString()
         },
+
         id: mirageModel.id,
+
         type: 'users'
       }
     });
@@ -196,6 +198,7 @@ module('Unit | Model |  base', function(hooks) {
         source: {
           pointer: '/data/attributes/email'
         },
+
         status: '422',
         title: 'TITLE'
       }]

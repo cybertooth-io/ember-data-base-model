@@ -2,6 +2,8 @@
 
 import DS from 'ember-data';
 
+const { JSONAPISerializer } = DS;
+
 /**
  * This is a convenience `JSONAPISerializer` that will ensure that both the
  * `createdAt` and `updatedAt` fields aren't serialized and pushed into the payload
@@ -20,7 +22,7 @@ import DS from 'ember-data';
  * @class BaseSerializer
  * @extends DS.JSONAPISerializer
  */
-export default DS.JSONAPISerializer.extend({
+export default JSONAPISerializer.extend({
 
   /**
    * The `attrs` object can be used to declare a simple mapping between property names on
