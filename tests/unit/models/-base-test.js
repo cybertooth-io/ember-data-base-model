@@ -3,6 +3,10 @@ import { setupMirage } from 'ember-cli-mirage/test-support';
 import { setupTest } from 'ember-qunit';
 import { module, skip, test } from 'qunit';
 
+// ---------------------------------------------------------------------------------------------------------------- NOTE
+// using Ember's old .get(...) in fetching properties to support testing against Ember-2.x
+// ---------------------------------------------------------------------------------------------------------------- NOTE
+
 module('Unit | Model |  base', function(hooks) {
   setupTest(hooks);
   setupMirage(hooks);
@@ -17,14 +21,14 @@ module('Unit | Model |  base', function(hooks) {
     let store = this.owner.lookup('service:store');
     let model = store.createRecord('-base');
 
-    assert.ok(isPresent(model.createdAt));
+    assert.ok(isPresent(model.get('createdAt')));
   });
 
   test('when initialized the updateAt is set to now', async function(assert) {
     let store = this.owner.lookup('service:store');
     let model = store.createRecord('-base');
 
-    assert.ok(isPresent(model.updatedAt));
+    assert.ok(isPresent(model.get('updatedAt')));
   });
 
   test('when altered? because createdAt does not match updatedAt', function(assert) {
@@ -45,12 +49,12 @@ module('Unit | Model |  base', function(hooks) {
     let mirageModel = this.server.create('user');
     let model = await store.findRecord('user', mirageModel.id);
 
-    assert.ok(model.isClean);
+    assert.ok(model.get('isClean'));
     assert.ok(model.get('clean?'));
 
     model.set('email', 'make dirty');
 
-    assert.notOk(model.isClean);
+    assert.notOk(model.get('isClean'));
     assert.notOk(model.get('clean?'));
   });
 
@@ -59,12 +63,12 @@ module('Unit | Model |  base', function(hooks) {
     let mirageModel = this.server.create('user');
     let model = await store.findRecord('user', mirageModel.id);
 
-    assert.notOk(model.isDirty);
+    assert.notOk(model.get('isDirty'));
     assert.notOk(model.get('dirty?'));
 
     model.set('email', 'make dirty');
 
-    assert.ok(model.isDirty);
+    assert.ok(model.get('isDirty'));
     assert.ok(model.get('dirty?'));
   });
 
@@ -110,7 +114,7 @@ module('Unit | Model |  base', function(hooks) {
     let mirageModel = this.server.create('user');
     let model = await store.findRecord('user', mirageModel.id);
 
-    assert.ok(model.isClean);
+    assert.ok(model.get('isClean'));
     model.set('email', 'invalid');
     model.get('errors').add('email', 'Email invalid');
     assert.equal(model.get('errors.length'), 1);
@@ -172,7 +176,7 @@ module('Unit | Model |  base', function(hooks) {
       }
     });
 
-    assert.equal(model.email, 'new-email@example.com');
+    assert.equal(model.get('email'), 'new-email@example.com');
   });
 
   test('when transitioned to uncommitted', async function(assert) {
@@ -204,6 +208,6 @@ module('Unit | Model |  base', function(hooks) {
       }]
     });
 
-    assert.equal(model.errors.length, 1, 'Errors were processed with the transition to uncommitted.');
+    assert.equal(model.get('errors.length'), 1, 'Errors were processed with the transition to uncommitted.');
   });
 });
