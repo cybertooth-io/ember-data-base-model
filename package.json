@@ -6,6 +6,7 @@
     "active-record-timestamps",
     "base-model",
     "ember-data",
+    "ember-api-actions",
     "data",
     "created-at",
     "updated-at",

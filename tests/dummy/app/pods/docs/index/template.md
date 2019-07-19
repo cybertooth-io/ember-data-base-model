@@ -28,3 +28,7 @@
     and Ember addons. 
   </p>
 </div>
+
+## Paired Nicely With `ember-api-actions`
+
+This addon pairs nicely with Mike North's [`ember-api-actions`](https://github.com/mike-north/ember-api-actions).
