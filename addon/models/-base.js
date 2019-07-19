@@ -1,8 +1,8 @@
 /** @documenter yuidoc */
 
-import { isPresent } from '@ember/utils';
 import { computed } from '@ember/object';
 import { deprecatingAlias, not, readOnly } from '@ember/object/computed';
+import { isPresent } from '@ember/utils';
 import DS from 'ember-data';
 
 const { attr, Model } = DS;
@@ -42,7 +42,7 @@ export default Model.extend({
    * @type Date
    */
   createdAt: attr('date', {
-    defaultValue: function () {
+    defaultValue: function() {
       return new Date();
     }
   }),
@@ -58,7 +58,7 @@ export default Model.extend({
    * @type Date
    */
   updatedAt: attr('date', {
-    defaultValue: function () {
+    defaultValue: function() {
       return new Date();
     }
   }),
@@ -117,7 +117,7 @@ export default Model.extend({
    * @type boolean
    * @accessor isAltered
    */
-  isAltered: computed('createdAt', 'updatedAt', function () {
+  isAltered: computed('createdAt', 'updatedAt', function() {
     const createdAt = this.get('createdAt');
     const updatedAt = this.get('updatedAt');
     return isPresent(createdAt) && isPresent(updatedAt) && createdAt.getTime() !== updatedAt.getTime();
@@ -209,11 +209,14 @@ export default Model.extend({
   // -------------------------------------------------------------------------------------------------------------------
 
   /**
+   * Experimental
+   *
    * Force the model's state to dirty.
    *
    * You could use this function after you've edited a model's relationships so that your Ember application
    * knows that the model may need to be saved.
    *
+   * @experimental
    * @method becomeDirty
    * @return {void}
    */
@@ -223,11 +226,14 @@ export default Model.extend({
   },
 
   /**
+   * Experimental
+   *
    * If you're manually saving a model, you could borrow this helper function to make sure the
    * model is marked as dirty and it's transitioned to `inFlight`.
    *
    * This method depends on accessing the `_internalModel` field.
    *
+   * @experimental
    * @method transitionToInFlight
    * @return {void}
    */
@@ -237,11 +243,14 @@ export default Model.extend({
   },
 
   /**
+   * Experimental
+   *
    * If you're manually saving a model, you could borrow this helper function to make sure the
    * model is marked as saved and supplied payload is pushed into the store.
    *
    * This method depends on accessing the `_internalModel` field.
    *
+   * @experimental
    * @param {Object} payload the API server payload that will be pushed into the Ember Data `store`
    * @method transitionToSaved
    * @return {void}
@@ -252,11 +261,14 @@ export default Model.extend({
   },
 
   /**
+   * Experimental
+   *
    * If you're manually saving a model, you can borrow this helper method in your error/catch block
    * to transition the model to `uncommitted` and process all of the payload errors.
    *
    * This method depends on accessing the `_internalModel` field.
    *
+   * @experimental
    * @param {Object} payload the API server payload that includes the error messages that will be appended
    * to the model's `errors` collection.
    * @method transitionToUncommitted

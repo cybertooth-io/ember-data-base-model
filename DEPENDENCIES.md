@@ -10,6 +10,11 @@ ember install ember-cli-addon-docs
 # https://github.com/kategengler/ember-cli-code-coverage
 ember install ember-cli-code-coverage@^1.0.0-beta.8
 
+# Used to test some models fetched from the store.
+# https://www.ember-cli-mirage.com/
+# https://github.com/samselikoff/ember-cli-mirage
+ember install ember-cli-mirage
+
 # Ember Data ... obvious?
 # https://github.com/emberjs/data
 ember install ember-data
